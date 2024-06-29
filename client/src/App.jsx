@@ -8,6 +8,8 @@ import SignUpPage from './pages/SignUpPage'
 import './App.css'
 import Cart from "./features/cart/Cart";
 import CartPage from "./pages/CartPage";
+import CheckOutPage from "./pages/CheckOutPage";
+
 
 
 
@@ -28,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: "/cart",
     element: <CartPage> </CartPage>,
+  },
+  {
+    path: "/checkout",
+    element: <CheckOutPage> </CheckOutPage>,
   },
 ]);
 
