@@ -1,17 +1,36 @@
-import './App.css'
-import ProductList from './features/product-list/ProductList'
-import Counter from './features/counter/Counter'
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 import Home from './pages/Home'
-import Login from './features/auth/components/Login'
+import LoginPage from './pages/LoginPage'
 import SignUpPage from './pages/SignUpPage'
+import './App.css'
+
+
+
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home> </Home>,
+  },
+  {
+    path: "/login",
+    element: <LoginPage> </LoginPage>,
+  },
+  {
+    path: "/signup",
+    element: <SignUpPage> </SignUpPage>,
+  },
+
+]);
 
 function App() {
 
   return (
     <div className='App'>
-      {/* <Home /> */}
-      {/* <Login /> */}
-      <SignUpPage></SignUpPage>
+      <RouterProvider router={router} />
     </div>
   )
 }
