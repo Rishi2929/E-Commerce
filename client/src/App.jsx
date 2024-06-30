@@ -9,6 +9,7 @@ import './App.css'
 import Cart from "./features/cart/Cart";
 import CartPage from "./pages/CartPage";
 import CheckOutPage from "./pages/CheckOutPage";
+import ProductDetailPage from "./pages/ProductDetailPage";
 
 
 
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
   {
     path: "/checkout",
     element: <CheckOutPage> </CheckOutPage>,
+  },
+  {
+    path: "/product-detail",
+    element: <ProductDetailPage> </ProductDetailPage>,
   },
 ]);
 
