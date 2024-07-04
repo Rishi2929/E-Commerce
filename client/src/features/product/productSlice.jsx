@@ -6,25 +6,25 @@ const initialState = {
     status: 'idle',
 };
 
+
 export const fetchAllProductsAsync = createAsyncThunk(
     'product/fetchAllProducts',
-    async (amount) => {
+    async () => {
         const response = await fetchAllProducts();
         // The value we return becomes the `fulfilled` action payload
-        // console.log("Slice", response.data)
+        return response.data;
+    }
+);
+export const fetchProductsByFiltersAsync = createAsyncThunk(
+    'product/fetchProductsByFilters',
+    async ({ filter, sort }) => {
+        const response = await fetchProductsByFilters(filter, sort);
+        // The value we return becomes the `fulfilled` action payload
         return response.data;
     }
 );
 
-export const fetchProductsByFiltersAsync = createAsyncThunk(
-    'product/fetchProductsByFiltersAsync',
-    async (filter) => {
-        const response = await fetchProductsByFilters(filter);
-        // The value we return becomes the `fulfilled` action payload
-        // console.log("Slice", response.data)
-        return response.data;
-    }
-);
+
 
 export const productSlice = createSlice({
     name: 'product',
@@ -56,5 +56,6 @@ export const productSlice = createSlice({
 export const { increment } = productSlice.actions;
 
 export const selectAllProducts = (state) => state.product.products;
-// console.log("Slice products " + selectAllProducts)
+
 export default productSlice.reducer;
+
